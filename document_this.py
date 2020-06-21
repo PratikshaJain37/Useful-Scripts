@@ -14,7 +14,7 @@ from shutil import copyfile
 ## For Setting Up The Document And Giving Title ##
 
 # Path of Python file to be read; put PATH without extension
-name_of_file = 'sample'
+name_of_file = 'Samples/sample'
 
 # File copied and renamed to txt(readable)
 # Edit as needed
