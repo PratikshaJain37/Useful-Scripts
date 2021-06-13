@@ -8,6 +8,7 @@
 
 ---
 
+
 ### Document-This
 #### An Overview:
 
@@ -22,12 +23,28 @@
 - On your terminal, run:  
 ```python document_this.py ``` 
 -  Success!
+  
+--- 
+
+### Sort-Files
+#### An Overview:
+
+- When you run the script, you get a directory of subfolders which have all the files sorted, according to the file type
+- For example, you can have all your images in one folder, etc.
+- It's useful for helping you organize folders you've neglected and just stored random things in!
+
+#### How To Use:
+
+-  Set folder variable as the Path of the folder you want to arrange.
+-  You can change/add file types and the subfolders, by editing the dictionary, called 'doctype_dict'
+- On your terminal, run:  
+```python sort_files.py ``` 
+-  Success!
 
 
 ---
 
-
-## How To Edit According To Your Needs:
+## How To Edit:
 
 - Fork this Repo, and use your own conventions to make it easier!
 
