@@ -11,7 +11,7 @@ import shutil
 
 #-------------------------------#
 # Edit the exact folder name here, with path 
-folder = "/home/folder/name/"
+folder = "/home/folder/name"
 
 #-------------------------------#
 
@@ -37,11 +37,12 @@ doctype_dict = {
 for file in filename:
 
     # getting extension of file
-    f = os.path.splitext(file)[1]
+    file_base = file.replace(folder,'')
+    ext = os.path.splitext(file_base)[1]
 
     # Matching extension with dict values
     for key, value in doctype_dict.items():
-        if f in value:
+        if ext in value:
             
             # Defining location of subfolder
             loc = folder+key
@@ -51,7 +52,19 @@ for file in filename:
                 os.mkdir(loc)
 
             # moving file into subfolder
-            shutil.move(file,loc)
+            try:
+            	shutil.move(file,loc)
+            except shutil.Error as e:
+                print(e.args[0])
+
+                # Error: File with same name already exists in that folder
+                if 'already exists' in e.args[0]:
+                    file_1 = file.replace(ext, '_1'+ext)
+                    os.rename(file, file_1)
+                    shutil.move(file_1,loc)
+                    print("File can be found as %s_1"%file_base.replace(ext,''))
+                    
+
             break
 
 #-------------------------------#
